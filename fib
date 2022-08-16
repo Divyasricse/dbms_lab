@@ -1,0 +1,36 @@
+# dbms_lab
+declare
+a number:=0;
+b number:=1;
+temp number;
+n number;
+i number;
+begin
+n:=&n;
+DBMS_OUTPUT.PUT_LINE('the fib sequence is:');
+DBMS_OUTPUT.PUT_LINE(a);
+DBMS_OUTPUT.PUT_LINE(b);
+for i in 2..n
+loop
+temp:=a+b;
+a:=b;
+b:=temp;
+DBMS_OUTPUT.PUT_LINE(temp);
+end loop;
+end;
+/
+output:
+Input truncated to 1 characters
+Enter value for n: 8
+old   8: n:=&n;
+new   8: n:=8;
+the fib sequence is:
+0
+1
+1
+2
+3
+5
+8
+13
+21
