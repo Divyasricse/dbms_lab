@@ -1,0 +1,28 @@
+# dbms_lab
+declare
+n number;
+m number;
+temp number:=0;
+rem number;
+begin
+n:=&n;
+m:=n;
+while n>0
+loop 
+rem:=mod(n,10);
+temp:=(temp*10)+rem;
+n:=trunc(n/10);
+end loop;
+if temp=m then
+DBMS_OUTPUT.PUT_LINE('PALINDROME');
+else
+DBMS_OUTPUT.PUT_LINE('NOT PALINDROME');
+END IF;
+end;
+/
+
+out put:
+Enter value for n: 5
+old   7: n:=&n;
+new   7: n:=5;
+PALINDROME
