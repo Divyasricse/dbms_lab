@@ -1,0 +1,55 @@
+# dbms_lab
+declare
+cursor s1 is select Name,Salary from emp4 order by Salary desc;
+cursor s2 is select Name,Salary from emp4 order by Salary;
+begin
+for i in s1
+loop
+if s1%rowcount<=5 then
+dbms_output.put_line(i.Name||'highest'||' :'||' '||i.Salary);
+end if;
+end loop;
+
+for i in s2
+loop
+if s2%rowcount<=5 then
+dbms_output.put_line(i.Name||'lowest'||' :'||' '||i.Salary);
+end if;
+end loop;
+end;
+SQL> insert into emp4 values(&EmpNo,'&Name',&Salary,'&Designation',&Deptid)
+  2  ;
+Enter value for empno: 8
+Enter value for name: anitha
+Enter value for salary: 7000
+Enter value for designation: designer
+Enter value for deptid: 181
+old   1: insert into emp4 values(&EmpNo,'&Name',&Salary,'&Designation',&Deptid)
+new   1: insert into emp4 values(8,'anitha',7000,'designer',181)
+
+priyahighest : 30000
+subhihighest : 25000
+sravanthihighest : 23000
+divyahighest : 21000
+alifahighest : 10100
+mounilowest : 1000
+kavithalowest : 2000
+lohilowest : 5000
+anithalowest : 7000
+sailowest : 8000
+
+> select * from emp4;
+
+  EMPNO NAME                     SALARY DESIGNATION              DEPTID
+------- -------------------- ---------- -------------------- ----------
+      1 divya                     21000 professor                   121
+      2 sravanthi                 23000 teacher                     131
+      3 kirthika                  10000 web site                    141
+      4 alifa                     10100 animi designer              151
+      5 lohi                       5000 talker                      151
+      6 mouni                      1000 patience                    161
+      7 subhi                     25000 walker                      171
+      8 anitha                     7000 designer                    181
+      9 kavitha                    2000 engineer                    191
+     10 priya                     30000 degree                     1010
+     11 sai                        8000 inter                      1111
